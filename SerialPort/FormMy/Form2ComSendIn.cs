@@ -93,16 +93,16 @@ namespace SerialPortC
             tBoxDataOut.Text = "";
         }
 
-        private void btnSend_Click(object sender, EventArgs e)
+        private async void btnSend_Click(object sender, EventArgs e)
         {
-            sendData();
+           await sendData();
         }
 
-        private void tBoxDataOut_KeyUp(object sender, KeyEventArgs e)
+        private async void tBoxDataOut_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                sendData();
+              await  sendData();
             }
         }
 
@@ -206,13 +206,13 @@ namespace SerialPortC
         }
 
         //----------------------Вкл. обманку данных -------------------------
-        private void timer1_Tick(object sender, EventArgs e)
+        private async void timer1_Tick(object sender, EventArgs e)
         {
             Random random = new Random();
               
                     try
                     {
-                         form1.sendDataEnter(Convert.ToString($"I={(random.NextDouble()) * 20}A U={(random.NextDouble()) * 20}V \n"));
+                       await  form1.sendDataEnter(Convert.ToString($"I={(random.NextDouble()) * 20}A U={(random.NextDouble()) * 20}V \n"));
                     }
                     catch (Exception ex)
                     {
