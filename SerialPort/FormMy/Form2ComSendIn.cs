@@ -225,10 +225,11 @@ namespace SerialPortC
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
-                timer1.Enabled = true;
-            else
-                timer1.Enabled = false;
+            //if (checkBox1.Checked)
+            //    timer1.Enabled = true;
+            //else
+            //    timer1.Enabled = false;
+            timer1.Enabled = checkBox1.Checked;
         }
     }
 }
